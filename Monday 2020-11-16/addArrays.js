@@ -41,10 +41,9 @@ function numberToArray(num) {
   number = Math.abs(num)                                    // convert number to positive, change the first digit before exiting if the number is negative
 
   while (number > 0) {
-    outputArray.push(number % 10)                           // push the remainder
+    outputArray.unshift(number % 10)                        // add the remainder at the beginning of the array
     number = Math.floor(number / 10)                        // get the rounded down value from the division
   }
-  outputArray.reverse()                                     // reverse the array order, because the division gives the remainder from the least significant digit
   outputArray[0] *= (num < 0) ? -1 : 1                      // change the first digit in index 0 to negative if number is negative
   return outputArray
 }
